@@ -17,12 +17,12 @@ from nexus9.causal_engine.dose_response import estimate_dose_response_curve
 from nexus9.causal_engine.sensitivity import placebo_treatment_refuter
 from futurebench.evaluation.causal_metrics import evaluate_causal_discovery
 
-st.header("??? Causal Engine: Discovery, DML & Continuous Interventions")
+st.header(" Causal Engine: Discovery, DML & Continuous Interventions")
 
 df = load_futurebench_data()
 gt_cg = CausalGraph.load_ground_truth()
 
-tab1, tab2, tab3 = st.tabs(["?? DAG Discovery", "?? Double Machine Learning (DML)", "?? Continuous Dose-Response"])
+tab1, tab2, tab3 = st.tabs([" DAG Discovery", " Double Machine Learning (DML)", " Continuous Dose-Response"])
 
 with tab1:
     col1, col2 = st.columns([1, 1])
@@ -49,7 +49,7 @@ with tab1:
             st.json(ref_res)
 
 with tab2:
-    st.subheader("?? Robinson's Double Machine Learning (DML)")
+    st.subheader(" Robinson's Double Machine Learning (DML)")
     st.markdown("Uses **orthogonalized residual cross-fitting** with Gradient Boosted Trees to eliminate non-linear confounding bias.")
 
     t_dml = st.selectbox("DML Treatment", ["weather_severity", "economic_pressure", "supplier_delay_days"], key="t_dml")
@@ -72,7 +72,7 @@ with tab2:
             st.json(dml_res)
 
 with tab3:
-    st.subheader("?? Continuous Causal Dose-Response Curve E[Y | do(T = t)]")
+    st.subheader(" Continuous Causal Dose-Response Curve E[Y | do(T = t)]")
     st.markdown("Simulates causal response across continuous policy or shock levels.")
 
     t_dose = st.selectbox("Treatment Intervention Variable", ["policy_strength", "weather_severity"], key="t_dose")

@@ -18,16 +18,16 @@ from nexus9.simulator.gym_env import SupplyChainGymEnv
 from app.components.charts import create_simulation_trajectory_plot
 from app.components.scenario_controls import render_scenario_controls
 
-st.header("?? Future World Simulator: Digital Twin, Bullwhip & Gym RL")
+st.header(" Future World Simulator: Digital Twin, Bullwhip & Gym RL")
 
-tab1, tab2, tab3 = st.tabs(["?? Macro Scenario Simulation", "?? Multi-Echelon Bullwhip Network", "??? Gymnasium RL Agent"])
+tab1, tab2, tab3 = st.tabs([" Macro Scenario Simulation", " Multi-Echelon Bullwhip Network", " Gymnasium RL Agent"])
 
 with tab1:
     controls = render_scenario_controls()
     horizon = st.sidebar.slider("Simulation Horizon (steps)", 5, 30, 12)
     n_runs = st.sidebar.slider("Monte Carlo Runs", 5, 50, 15)
 
-    if st.button("?? Run Scenario Simulation"):
+    if st.button(" Run Scenario Simulation"):
         with st.spinner("Running Monte Carlo rollouts..."):
             scen = Scenario(
                 name=f"Interactive Regime: {controls['environment_regime']}",
@@ -46,7 +46,7 @@ with tab1:
             st.plotly_chart(create_simulation_trajectory_plot(sim_df), use_container_width=True)
 
 with tab2:
-    st.subheader("?? 4-Echelon Network: Tier-2 -> Tier-1 -> Central DC -> Retail Outlets")
+    st.subheader(" 4-Echelon Network: Tier-2 -> Tier-1 -> Central DC -> Retail Outlets")
     st.markdown("Simulates order amplification (the **Bullwhip Effect**) across upstream supply tiers using classical $(s, S)$ policies.")
 
     steps = st.slider("Simulation Steps", 10, 50, 25)
@@ -74,7 +74,7 @@ with tab2:
         st.metric("Upstream Bullwhip Amplification Ratio", f"{avg_bullwhip:.2f}x")
 
 with tab3:
-    st.subheader("??? Gymnasium Reinforcement Learning Environment")
+    st.subheader(" Gymnasium Reinforcement Learning Environment")
     st.markdown("`SupplyChainGymEnv` standard interface for PPO/SAC autonomous policy learning.")
 
     if st.button("Run Sample Gym RL Agent Rollout", key="gym_btn"):

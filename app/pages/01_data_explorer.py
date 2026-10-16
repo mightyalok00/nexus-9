@@ -19,7 +19,7 @@ from app.components.charts import create_correlation_heatmap
 apply_custom_theme()
 
 render_hero_banner(
-    title="?? FutureBench Data Explorer & Filter Suite",
+    title=" FutureBench Data Explorer & Filter Suite",
     subtitle="Interactive Multi-Dimensional Filtering ? Regime Distributions ? Anti-Leakage Verification",
     badge_text="12,000 SCENARIOS",
 )
@@ -76,11 +76,11 @@ try:
     st.markdown("<br>", unsafe_allow_html=True)
 
     # Tabs: Data View, Distribution Charts, Schema & Missingness
-    tab1, tab2, tab3 = st.tabs(["?? Filtered Data Table", "?? Distribution & Correlations", "?? Schema & Missingness Audit"])
+    tab1, tab2, tab3 = st.tabs([" Filtered Data Table", " Distribution & Correlations", " Schema & Missingness Audit"])
 
     with tab1:
         st.subheader("Filtered Scenario Records")
-        search_kw = st.text_input("?? Quick Search by Regime or Metric Range", placeholder="Type keywords or scenario IDs...")
+        search_kw = st.text_input(" Quick Search by Regime or Metric Range", placeholder="Type keywords or scenario IDs...")
         display_df = filtered_df
         if search_kw:
             display_df = filtered_df[filtered_df.astype(str).apply(lambda row: row.str.contains(search_kw, case=False).any(), axis=1)]
@@ -89,7 +89,7 @@ try:
 
         csv_data = filtered_df.to_csv(index=False).encode("utf-8")
         st.download_button(
-            label="?? Download Active Filtered Dataset (CSV)",
+            label=" Download Active Filtered Dataset (CSV)",
             data=csv_data,
             file_name="nexus9_filtered_futurebench.csv",
             mime="text/csv",
@@ -130,7 +130,7 @@ try:
         st.dataframe(missing_df, width="stretch")
 
         st.info("""
-        **?? Critical Data Design Rule Verification:**
+        ** Critical Data Design Rule Verification:**
         `disruption_risk` is directly derived from `delivery_delay_days`, `inventory_gap`, and `service_level`.
         All early-warning models strictly exclude those three outcome columns to prevent label leakage.
         """)

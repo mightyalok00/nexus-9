@@ -13,7 +13,7 @@ from app.components.theme import render_hero_banner, apply_custom_theme
 apply_custom_theme()
 
 render_hero_banner(
-    title="?? Tamper-Evident Evidence Ledger",
+    title=" Tamper-Evident Evidence Ledger",
     subtitle="Cryptographic SHA-256 Audit Trail ? Reproducible Research Provenance ? Immutable Blocks",
     badge_text="BLOCKCHAIN-INSPIRED LEDGER",
 )
@@ -53,7 +53,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 
 if not entries:
     st.info("Ledger initialized. Click below to record a sample benchmark experiment block.")
-    if st.button("?? Record Benchmark Verification Block"):
+    if st.button(" Record Benchmark Verification Block"):
         ledger.record_entry(
             experiment_type="Model Arena Evaluation",
             parameters={"models": ["RF", "XGB", "SVM", "Voting"]},
@@ -64,7 +64,7 @@ if not entries:
 else:
     st.subheader(f"Verified Ledger Blocks ({len(entries)})")
     for entry in reversed(entries):
-        with st.expander(f"?? Block #{entry['index']} ? {entry['experiment_type']} ({entry['timestamp']})"):
+        with st.expander(f" Block #{entry['index']} ? {entry['experiment_type']} ({entry['timestamp']})"):
             st.markdown(f"**Block Hash:** `{entry['hash']}`")
             st.markdown(f"**Previous Hash:** `{entry['prev_hash']}`")
             st.json({

@@ -17,4 +17,4 @@
 | `delivery_delay_days` | Float | Downstream customer delivery delay | ? No (Outcome definition) |
 | `operating_cost` | Float | Total operating expenditure (includes outlier tail) | ? Yes |
 | `service_level` | Float | Customer order fulfillment percentage (0 to 100) | ? No (Outcome definition) |
-| `disruption_risk` | Integer | Target: 1 = Disrupted, 0 = Normal | ?? Target |
+| `disruption_risk` | Integer | Target: 1 = Disrupted, 0 = Normal | Target (Primary) |

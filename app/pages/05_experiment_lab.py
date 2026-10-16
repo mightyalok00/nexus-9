@@ -12,7 +12,7 @@ from nexus9.simulator.runner import run_scenario
 from nexus9.simulator.scenario import Scenario
 from nexus9.config import settings
 
-st.header("?? Autonomous Research Agents: Self-Correcting Inquiry Loop")
+st.header(" Autonomous Research Agents: Self-Correcting Inquiry Loop")
 
 st.markdown("""
 NEXUS-9 deploys a cooperative 4-agent research society:
@@ -24,7 +24,7 @@ NEXUS-9 deploys a cooperative 4-agent research society:
 
 max_iter = st.slider("Maximum Iterations for Red-Team Consensus", 1, 5, 3)
 
-if st.button("?? Execute Autonomous Research Inquiry Loop", key="run_loop_btn"):
+if st.button(" Execute Autonomous Research Inquiry Loop", key="run_loop_btn"):
     with st.spinner("Agents conducting collaborative inquiry loop..."):
         scen = Scenario(
             name="Research Shock Scenario",
@@ -47,5 +47,5 @@ if st.button("?? Execute Autonomous Research Inquiry Loop", key="run_loop_btn"):
                 st.info(f"**Red-Team Statement:** {round_info['red_team_statement']}")
                 st.json(round_info["feature_audit"])
 
-        st.subheader("?? Tamper-Evident Ledger Block Recorded")
+        st.subheader(" Tamper-Evident Ledger Block Recorded")
         st.json(results["ledger_entry"])

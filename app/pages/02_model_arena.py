@@ -20,16 +20,16 @@ from nexus9.ml_lab.shap_explainer import ModelExplainer
 from nexus9.ml_lab.cost_sensitive import optimize_decision_threshold
 from app.components.charts import create_model_comparison_bar
 
-st.header("?? Model Arena: Competitive Benchmarks, Conformal Sets & SHAP")
+st.header(" Model Arena: Competitive Benchmarks, Conformal Sets & SHAP")
 
 df = load_futurebench_data()
 X_train, X_val, X_test, y_train, y_val, y_test = create_train_val_test_splits(df)
 
-tab1, tab2, tab3, tab4 = st.tabs(["?? Leaderboard", "??? Conformal Prediction", "?? SHAP Explainability", "?? Cost-Sensitive Thresholds"])
+tab1, tab2, tab3, tab4 = st.tabs([" Leaderboard", " Conformal Prediction", " SHAP Explainability", " Cost-Sensitive Thresholds"])
 
 with tab1:
     st.write(f"Train split: **{len(X_train):,}** | Val split: **{len(X_val):,}** | Test split: **{len(X_test):,}**")
-    if st.button("?? Run Model Arena Benchmark", key="arena_bench"):
+    if st.button(" Run Model Arena Benchmark", key="arena_bench"):
         with st.spinner("Training competitive models..."):
             models = ["baseline_dummy", "baseline_logistic", "bagging_random_forest", "boosting_xgboost", "voting_ensemble", "svm_classifier"]
             results = []
@@ -53,7 +53,7 @@ with tab1:
                 st.plotly_chart(create_model_comparison_bar(res_df, metric="roc_auc"), use_container_width=True)
 
 with tab2:
-    st.subheader("??? Split Conformal Prediction (Guaranteed Finite-Sample Coverage)")
+    st.subheader(" Split Conformal Prediction (Guaranteed Finite-Sample Coverage)")
     st.markdown("Replaces uncalibrated point estimates with **statistically valid prediction sets** $C(X) \subseteq \{0, 1\}$ such that $P(Y \in C(X)) \ge 1 - \alpha$.")
 
     confidence_level = st.slider("Target Confidence Level (1 - ?)", 0.80, 0.99, 0.90, 0.01)
@@ -75,7 +75,7 @@ with tab2:
             st.json(metrics)
 
 with tab3:
-    st.subheader("?? SHAP Feature Importance & Interpretability")
+    st.subheader(" SHAP Feature Importance & Interpretability")
     st.markdown("TreeExplainer Shapley values for early-warning predictor attribution without leaked outcomes.")
     if st.button("Compute SHAP Values", key="shap_btn"):
         with st.spinner("Calculating SHAP explanations..."):
@@ -99,7 +99,7 @@ with tab3:
             st.plotly_chart(fig, use_container_width=True)
 
 with tab4:
-    st.subheader("?? Asymmetric Cost-Sensitive Threshold Tuning")
+    st.subheader(" Asymmetric Cost-Sensitive Threshold Tuning")
     cost_fn = st.number_input("Cost of False Negative (Unanticipated Disruption Shutdown)", value=10000.0, step=1000.0)
     cost_fp = st.number_input("Cost of False Positive (Unnecessary Buffer Inventory)", value=500.0, step=50.0)
 
