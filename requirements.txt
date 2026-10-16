@@ -1,3 +1,6 @@
+# ==============================================================================
+# NEXUS-9 Production Requirements
+# ==============================================================================
 pandas>=2.1.0
 numpy>=1.26.0
 scipy>=1.11.0
@@ -12,14 +15,13 @@ uvicorn[standard]>=0.27.0
 streamlit>=1.31.0
 plotly>=5.18.0
 optuna>=3.5.0
-
-[causal]
-dowhy>=0.11
 networkx>=3.2.0
+shap>=0.44.0
+gymnasium>=0.29.0
+mlflow>=2.10.0
+requests>=2.31.0
 
-[dev]
+# Development & Testing
 pytest>=8.0.0
 pytest-cov>=4.1.0
 ruff>=0.2.0
-jupyter>=1.0.0
-ipykernel>=6.29.0
