@@ -39,6 +39,7 @@ DEFAULT_OUTPUT = PROJECT_ROOT / "reports" / "real_world" / "olist_validation.jso
 
 REQUIRED_ORDER_COLUMNS = {
     "order_id",
+    "customer_id",
     "order_status",
     "order_purchase_timestamp",
     "order_delivered_customer_date",
@@ -157,12 +158,15 @@ def _make_pipeline(model: Any, numeric_features: list[str], categorical_features
     return Pipeline(steps=[("preprocess", preprocess), ("model", model)])
 
 
-def _classification_metrics(y_true: pd.Series, probabilities: np.ndarray, threshold: float) -> dict[str, float]:
+def _classification_metrics(
+    y_true: pd.Series, probabilities: np.ndarray, threshold: float
+) -> dict[str, float | None]:
     predictions = (probabilities >= threshold).astype("int8")
+    has_both_classes = y_true.nunique() == 2
     return {
         "threshold": float(threshold),
-        "roc_auc": float(roc_auc_score(y_true, probabilities)),
-        "average_precision": float(average_precision_score(y_true, probabilities)),
+        "roc_auc": float(roc_auc_score(y_true, probabilities)) if has_both_classes else None,
+        "average_precision": float(average_precision_score(y_true, probabilities)) if has_both_classes else None,
         "f1": float(f1_score(y_true, predictions, zero_division=0)),
         "precision": float(precision_score(y_true, predictions, zero_division=0)),
         "recall": float(recall_score(y_true, predictions, zero_division=0)),
@@ -186,6 +190,8 @@ def run_olist_validation(data_dir: str | Path = DEFAULT_DATA_DIR) -> dict[str, A
     y = examples["late_delivery"]
     X_train, X_val, X_test = X.iloc[:train_end], X.iloc[train_end:val_end], X.iloc[val_end:]
     y_train, y_val, y_test = y.iloc[:train_end], y.iloc[train_end:val_end], y.iloc[val_end:]
+    if y_train.nunique() != 2:
+        raise ValueError("The chronological training split must contain both target classes; check dataset coverage.")
 
     models = {
         "dummy_most_frequent": DummyClassifier(strategy="most_frequent"),
