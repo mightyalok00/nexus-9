@@ -32,7 +32,7 @@ jobs:
         pip install -e ".[dev]"
 
     - name: Run Ruff Linter
-      run: ruff check src/ tests/ api/ app/
+      run: ruff check src/ tests/ api/ app/ scripts/validate_olist.py
 
     - name: Run Automated Pytest Suite
       run: pytest tests/ -v
