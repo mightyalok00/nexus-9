@@ -1,0 +1,3 @@
+@echo off
+echo Launching NEXUS-9 Interactive Research Dashboard...
+"D:\nexus-9\.venv\Scripts\streamlit.exe" run app/dashboard.py

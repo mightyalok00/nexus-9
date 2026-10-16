@@ -1,0 +1,43 @@
+# ==============================================================================
+# NEXUS-9 Docker Compose Orchestration
+# Services: Streamlit Research Dashboard & FastAPI Model Gateway
+# ==============================================================================
+
+services:
+  # Interactive Research Dashboard
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nexus9-dashboard
+    restart: unless-stopped
+    ports:
+      - "8501:8501"
+    environment:
+      - NEXUS9_ENV=production
+      - STREAMLIT_SERVER_HEADLESS=true
+      - STREAMLIT_THEME_BASE=dark
+    volumes:
+      - ./reports:/app/reports
+      - ./datasets:/app/datasets
+    command: ["streamlit", "run", "app/dashboard.py", "--server.port=8501", "--server.address=0.0.0.0"]
+
+  # REST API Gateway for Models, Causal Inferences & Simulations
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nexus9-api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - NEXUS9_ENV=production
+    volumes:
+      - ./reports:/app/reports
+      - ./datasets:/app/datasets
+    command: ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+
+networks:
+  default:
+    name: nexus9-network

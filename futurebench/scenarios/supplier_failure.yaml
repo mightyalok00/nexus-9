@@ -1,0 +1,7 @@
+name: "Supplier Failure Regime"
+description: "Severe degradation of primary tier-1 supplier reliability"
+regime: "supplier_failure"
+interventions:
+  supplier_reliability: 0.25
+  supplier_delay_days: 14.0
+duration_steps: 8

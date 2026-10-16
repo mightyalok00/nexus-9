@@ -1,0 +1,17 @@
+column,dtype,description
+scenario_id,Integer,Unique row identifier; exclude from modeling.
+environment_regime,Categorical,"Derived regime: normal, demand_surge, or extreme_weather."
+economic_pressure,Float,Synthetic economic pressure driver.
+weather_severity,Float,Synthetic weather severity from 0 to 1.
+supplier_reliability,Float,Synthetic supplier reliability from 0 to 1; contains missing values.
+demand_shock,Float,Random demand disturbance.
+policy_strength,Float,Synthetic policy intensity from 0 to 1.
+capacity,Float,Available baseline capacity before reliability and weather effects.
+demand,Float,Generated demand.
+supplier_delay_days,Float,Generated supplier delay in days.
+available_capacity,Float,Effective capacity after reliability and weather effects.
+inventory_gap,Float,"Positive demand minus effective capacity, floored at zero."
+delivery_delay_days,Float,Generated delivery delay in days.
+operating_cost,Float,Generated operating cost; includes a small set of extreme outliers.
+service_level,Float,"Generated service level, clipped to 0–100."
+disruption_risk,Integer,"Binary classification target derived from delivery delay, inventory gap, and service level."

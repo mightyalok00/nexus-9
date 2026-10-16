@@ -1,0 +1,17 @@
+# Autonomous Research Agent & Experiment Planner Settings
+experiment_lab:
+  budget_iterations: 20
+  exploration_factor: 1.96
+  regret_metric: "expected_opportunity_loss"
+
+agents:
+  orchestrator:
+    max_rounds: 3
+    require_consensus: true
+  investigator:
+    anomaly_threshold_std: 2.5
+  hypothesis_scientist:
+    significance_alpha: 0.05
+  red_team:
+    challenge_data_leakage: true
+    challenge_causal_fallacy: true

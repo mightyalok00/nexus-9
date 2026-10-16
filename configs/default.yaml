@@ -1,0 +1,37 @@
+# NEXUS-9 Default System Configuration
+system:
+  project_name: "nexus-9"
+  version: "0.1.0"
+  random_seed: 20261016
+  log_level: "INFO"
+
+paths:
+  raw_data: "datasets/raw/nexus9_futurebench.csv"
+  metadata_dir: "datasets/metadata"
+  causal_graph: "datasets/metadata/ground_truth_causal_graph.json"
+  data_dictionary: "datasets/metadata/data_dictionary.csv"
+  evidence_ledger: "reports/experiments/ledger.json"
+  model_artifacts: "reports/model_cards"
+
+features:
+  target_column: "disruption_risk"
+  id_column: "scenario_id"
+  # Leaking columns excluded for early-warning predictive validity
+  leakage_columns:
+    - "delivery_delay_days"
+    - "inventory_gap"
+    - "service_level"
+  # Regimes and exogenous factors
+  categorical_features:
+    - "environment_regime"
+  numerical_features:
+    - "economic_pressure"
+    - "weather_severity"
+    - "supplier_reliability"
+    - "demand_shock"
+    - "policy_strength"
+    - "capacity"
+    - "demand"
+    - "supplier_delay_days"
+    - "available_capacity"
+    - "operating_cost"

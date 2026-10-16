@@ -1,0 +1,68 @@
+{
+  "model_arena": [
+    {
+      "accuracy": 0.48388888888888887,
+      "balanced_accuracy": 0.48213196534744296,
+      "precision": 0.515311510031679,
+      "recall": 0.5093945720250522,
+      "f1": 0.5123359580052493,
+      "roc_auc": 0.48213196534744296,
+      "brier_score": 0.5161111111111111,
+      "log_loss": 18.60252999916102,
+      "model": "baseline_dummy"
+    },
+    {
+      "accuracy": 0.9022222222222223,
+      "balanced_accuracy": 0.9031806167837786,
+      "precision": 0.925,
+      "recall": 0.8883089770354906,
+      "f1": 0.906283280085197,
+      "roc_auc": 0.9716414838911231,
+      "brier_score": 0.06579601293205378,
+      "log_loss": 0.20968727489431596,
+      "model": "bagging_random_forest"
+    },
+    {
+      "accuracy": 0.9077777777777778,
+      "balanced_accuracy": 0.908327919904393,
+      "precision": 0.924892703862661,
+      "recall": 0.8997912317327766,
+      "f1": 0.9121693121693122,
+      "roc_auc": 0.973921322628794,
+      "brier_score": 0.0634540542960167,
+      "log_loss": 0.19993284344673157,
+      "model": "boosting_xgboost"
+    },
+    {
+      "accuracy": 0.9055555555555556,
+      "balanced_accuracy": 0.9059526229922791,
+      "precision": 0.9209401709401709,
+      "recall": 0.8997912317327766,
+      "f1": 0.9102428722280888,
+      "roc_auc": 0.974642837661597,
+      "brier_score": 0.06234970453145981,
+      "log_loss": 0.19881643325965595,
+      "model": "voting_ensemble"
+    },
+    {
+      "accuracy": 0.9133333333333333,
+      "balanced_accuracy": 0.9139066443848278,
+      "precision": 0.9302575107296137,
+      "recall": 0.9050104384133612,
+      "f1": 0.9174603174603174,
+      "roc_auc": 0.973815326863666,
+      "brier_score": 0.06318674703165357,
+      "log_loss": 0.2024352261309111,
+      "model": "svm_classifier"
+    }
+  ],
+  "causal_discovery": {
+    "true_positives": 18,
+    "false_positives": 32,
+    "false_negatives": 4,
+    "precision": 0.36,
+    "recall": 0.8181818181818182,
+    "f1": 0.5,
+    "shd": 36
+  }
+}

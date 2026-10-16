@@ -1,0 +1,7 @@
+name: "Demand Surge Regime"
+description: "Simulates sudden spike in macro-economic demand pressures with baseline supply"
+regime: "demand_surge"
+interventions:
+  demand_shock: 2.5
+  economic_pressure: 1.8
+duration_steps: 12

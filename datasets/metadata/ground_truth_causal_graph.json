@@ -1,0 +1,117 @@
+{
+  "dataset": "NEXUS-9 FutureBench v1",
+  "synthetic": true,
+  "seed": 20261016,
+  "nodes": [
+    "economic_pressure",
+    "weather_severity",
+    "supplier_reliability",
+    "demand_shock",
+    "policy_strength",
+    "capacity",
+    "demand",
+    "supplier_delay_days",
+    "available_capacity",
+    "inventory_gap",
+    "delivery_delay_days",
+    "operating_cost",
+    "service_level",
+    "disruption_risk"
+  ],
+  "edges": [
+    [
+      "economic_pressure",
+      "demand"
+    ],
+    [
+      "demand_shock",
+      "demand"
+    ],
+    [
+      "policy_strength",
+      "demand"
+    ],
+    [
+      "weather_severity",
+      "supplier_delay_days"
+    ],
+    [
+      "supplier_reliability",
+      "supplier_delay_days"
+    ],
+    [
+      "capacity",
+      "available_capacity"
+    ],
+    [
+      "supplier_reliability",
+      "available_capacity"
+    ],
+    [
+      "weather_severity",
+      "available_capacity"
+    ],
+    [
+      "demand",
+      "inventory_gap"
+    ],
+    [
+      "available_capacity",
+      "inventory_gap"
+    ],
+    [
+      "inventory_gap",
+      "delivery_delay_days"
+    ],
+    [
+      "supplier_delay_days",
+      "delivery_delay_days"
+    ],
+    [
+      "demand",
+      "operating_cost"
+    ],
+    [
+      "supplier_delay_days",
+      "operating_cost"
+    ],
+    [
+      "inventory_gap",
+      "operating_cost"
+    ],
+    [
+      "weather_severity",
+      "operating_cost"
+    ],
+    [
+      "inventory_gap",
+      "service_level"
+    ],
+    [
+      "delivery_delay_days",
+      "service_level"
+    ],
+    [
+      "supplier_reliability",
+      "service_level"
+    ],
+    [
+      "delivery_delay_days",
+      "disruption_risk"
+    ],
+    [
+      "inventory_gap",
+      "disruption_risk"
+    ],
+    [
+      "service_level",
+      "disruption_risk"
+    ]
+  ],
+  "notes": [
+    "Edges describe the intended data-generating process.",
+    "This is synthetic data for prototyping and benchmarking, not empirical evidence.",
+    "The environment_regime column is derived from weather_severity and economic_pressure.",
+    "Do not use scenario_id as a predictive feature."
+  ]
+}

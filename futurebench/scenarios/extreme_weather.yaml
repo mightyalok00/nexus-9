@@ -1,0 +1,7 @@
+name: "Extreme Weather Disruption"
+description: "High weather severity crippling transport routes and effective capacity"
+regime: "extreme_weather"
+interventions:
+  weather_severity: 0.95
+  capacity: 45.0
+duration_steps: 10

@@ -1,0 +1,37 @@
+# Version control
+.git
+.gitignore
+.github
+
+# Virtual environments
+.venv
+env/
+venv/
+ENV/
+
+# Python caches & build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+junit.xml
+
+# IDE & Editor caches
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary runtime data & notebooks checkpoints
+.ipynb_checkpoints/
+scratch/
+*.log
+mlruns/

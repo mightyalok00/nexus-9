@@ -1,0 +1,72 @@
+[
+  {
+    "index": 0,
+    "timestamp": "2026-10-16T06:50:58Z",
+    "experiment_type": "Model Arena Evaluation",
+    "parameters": {
+      "evaluated_models": [
+        "baseline_dummy",
+        "baseline_logistic",
+        "bagging_random_forest",
+        "boosting_xgboost",
+        "voting_ensemble",
+        "svm_classifier"
+      ]
+    },
+    "metrics": {
+      "best_model": "baseline_dummy",
+      "f1": 0.5123359580052493
+    },
+    "agent_notes": "Held-out evaluation completed with strictly verified anti-leakage guards.",
+    "prev_hash": "GENESIS_NEXUS9",
+    "hash": "7f9e3366240833d48ad81acb9d0f0e0d17183d28cb722d9c941ea3f8cc10cf98"
+  },
+  {
+    "index": 1,
+    "timestamp": "2026-10-16T07:20:27Z",
+    "experiment_type": "Autonomous Self-Correcting Research Cycle",
+    "parameters": {
+      "iterations_run": 1,
+      "max_iterations": 2
+    },
+    "metrics": {
+      "final_approved": true,
+      "disruption_rate": 0.0
+    },
+    "agent_notes": "Red-Team certified zero data leakage and causal alignment.",
+    "prev_hash": "7f9e3366240833d48ad81acb9d0f0e0d17183d28cb722d9c941ea3f8cc10cf98",
+    "hash": "ede494022a4cb8993e4d96ddc562d3a16e99770dd1d2d07df4efcae1ff2d1045"
+  },
+  {
+    "index": 2,
+    "timestamp": "2026-10-16T07:21:36Z",
+    "experiment_type": "Autonomous Self-Correcting Research Cycle",
+    "parameters": {
+      "iterations_run": 1,
+      "max_iterations": 2
+    },
+    "metrics": {
+      "final_approved": true,
+      "disruption_rate": 0.0
+    },
+    "agent_notes": "Red-Team certified zero data leakage and causal alignment.",
+    "prev_hash": "ede494022a4cb8993e4d96ddc562d3a16e99770dd1d2d07df4efcae1ff2d1045",
+    "hash": "794daa56e87bb825c4c3b685b155c0677b621475d8ca5f9b18684318c7367ea2"
+  },
+  {
+    "index": 3,
+    "timestamp": "2026-10-16T07:30:12Z",
+    "experiment_type": "Autonomous Self-Correcting Research Cycle",
+    "parameters": {
+      "iterations_run": 1,
+      "max_iterations": 2
+    },
+    "metrics": {
+      "final_approved": true,
+      "disruption_rate": 0.0
+    },
+    "agent_notes": "Red-Team certified zero data leakage and causal alignment.",
+    "prev_hash": "794daa56e87bb825c4c3b685b155c0677b621475d8ca5f9b18684318c7367ea2",
+    "hash": "eff806e58a8b8792d5fe1f05e381275fe7f244011c636e544f259db5389c4e58"
+  }
+]
