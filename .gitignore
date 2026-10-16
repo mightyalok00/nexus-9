@@ -21,3 +21,7 @@ htmlcov/
 *.log
 scratch/
 .ipynb_checkpoints/
+# Root loose dataset duplicates (canonical versions live in datasets/)
+/data_dictionary.csv
+/ground_truth_causal_graph.json
+/nexus9_futurebench.csv
