@@ -67,7 +67,9 @@ nexus-9/
 
 ---
 
-## Previously Reported Benchmark Snapshot (Synthetic FutureBench)\n\n> These figures are a repository-reported snapshot, not results executed or verified by this change. Regenerate the benchmark with `python scripts/run_benchmarks.py` before citing the numbers. FutureBench is synthetic; strong scores on it do not establish performance on real supply-chain data. The runner now emits split/seed metadata and expanded classification metrics.
+## Previously Reported Benchmark Snapshot (Synthetic FutureBench)
+
+> These figures are a repository-reported snapshot, not results executed or verified by this change. Regenerate the benchmark with `python scripts/run_benchmarks.py` before citing the numbers. FutureBench is synthetic; strong scores on it do not establish performance on real supply-chain data. The runner now emits split/seed metadata and expanded classification metrics.
 
 All models are trained and evaluated strictly on early-warning predictors (zero label leakage):
 
@@ -113,7 +115,13 @@ python scripts/run_benchmarks.py
 
 ---
 
-## Evaluation and Reproducibility\n\nThe model benchmark uses a deterministic seed and reports train/validation/test sizes, test-set target prevalence, and the selected ranking metric. Classification metrics include F1, balanced accuracy, specificity, Matthews correlation coefficient (MCC), ROC-AUC, average precision, Brier score, log loss, and confusion-matrix counts when probabilities are available. Invalid probability arrays now fail explicitly rather than being silently ignored.\n\nThe model leaderboard is ranked by held-out F1 and records the actual top-ranked model in the evidence ledger. Results are still based on the synthetic FutureBench dataset; external validation remains required before making real-world claims.\n\n## Real-World Proxy Validation (Olist)
+## Evaluation and Reproducibility
+
+The model benchmark uses a deterministic seed and reports train/validation/test sizes, test-set target prevalence, and the selected ranking metric. Classification metrics include F1, balanced accuracy, specificity, Matthews correlation coefficient (MCC), ROC-AUC, average precision, Brier score, log loss, and confusion-matrix counts when probabilities are available. Invalid probability arrays now fail explicitly rather than being silently ignored.
+
+The model leaderboard is ranked by held-out F1 and records the actual top-ranked model in the evidence ledger. Results are still based on the synthetic FutureBench dataset; external validation remains required before making real-world claims.
+
+## Real-World Proxy Validation (Olist)
 
 NEXUS-9 now includes an optional external validation harness for the real [Olist Brazilian E-Commerce dataset](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce). It evaluates delivery-delay classification using chronological train/validation/test splits, a dummy baseline, logistic regression, random forest, and leakage-aware purchase-time features.
 
