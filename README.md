@@ -1,6 +1,6 @@
 # NEXUS-9: Modular Research-Grade AI/ML System
 
-[![CI Status](https://img.shields.io/badge/CI-Passing-brightgreen)]()
+[![CI](https://github.com/mightyalok00/nexus-9/actions/workflows/ci.yml/badge.svg)](https://github.com/mightyalok00/nexus-9/actions/workflows/ci.yml)
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)]()
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)]()
 [![Architecture](https://img.shields.io/badge/Architecture-Modular_Research_Grade-purple)]()
@@ -67,7 +67,7 @@ nexus-9/
 
 ---
 
-## Benchmark Results (1,800 Held-Out Scenarios)
+## Previously Reported Benchmark Snapshot (Synthetic FutureBench)\n\n> These figures are a repository-reported snapshot, not results executed or verified by this change. Regenerate the benchmark with `python scripts/run_benchmarks.py` before citing the numbers. FutureBench is synthetic; strong scores on it do not establish performance on real supply-chain data. The runner now emits split/seed metadata and expanded classification metrics.
 
 All models are trained and evaluated strictly on early-warning predictors (zero label leakage):
 
@@ -99,7 +99,7 @@ streamlit run app/dashboard.py
 ```
 Open your browser at `http://localhost:8501`.
 
-### 3. Run the Automated Test Suite (18 Tests)
+### 3. Run the Automated Test Suite
 ```powershell
 pytest tests/ -v
 ```
@@ -113,7 +113,7 @@ python scripts/run_benchmarks.py
 
 ---
 
-## Critical Anti-Leakage Design Rule
+## Evaluation and Reproducibility\n\nThe model benchmark uses a deterministic seed and reports train/validation/test sizes, test-set target prevalence, and the selected ranking metric. Classification metrics include F1, balanced accuracy, specificity, Matthews correlation coefficient (MCC), ROC-AUC, average precision, Brier score, log loss, and confusion-matrix counts when probabilities are available. Invalid probability arrays now fail explicitly rather than being silently ignored.\n\nThe model leaderboard is ranked by held-out F1 and records the actual top-ranked model in the evidence ledger. Results are still based on the synthetic FutureBench dataset; external validation remains required before making real-world claims.\n\n## Critical Anti-Leakage Design Rule
 
 `disruption_risk` is mathematically defined from `delivery_delay_days`, `inventory_gap`, and `service_level`:
 
