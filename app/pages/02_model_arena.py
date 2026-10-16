@@ -54,7 +54,7 @@ with tab1:
 
 with tab2:
     st.subheader(" Split Conformal Prediction (Guaranteed Finite-Sample Coverage)")
-    st.markdown("Replaces uncalibrated point estimates with **statistically valid prediction sets** $C(X) \subseteq \{0, 1\}$ such that $P(Y \in C(X)) \ge 1 - \alpha$.")
+    st.markdown("Replaces uncalibrated point estimates with **statistically valid prediction sets** $C(X) \\subseteq \\{0, 1\\}$ such that $P(Y \\in C(X)) \\ge 1 - \alpha$.")
 
     confidence_level = st.slider("Target Confidence Level (1 - ?)", 0.80, 0.99, 0.90, 0.01)
     if st.button("Calculate Conformal Prediction Sets", key="conformal_btn"):

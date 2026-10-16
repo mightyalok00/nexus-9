@@ -1,6 +1,6 @@
 """Real-time model performance degradation and telemetry tracking."""
 
-from typing import Dict, List
+from typing import Any, Dict, List
 import numpy as np
 
 class PerformanceMonitor:

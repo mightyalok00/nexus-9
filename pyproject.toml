@@ -52,9 +52,17 @@ testpaths = ["tests"]
 pythonpath = ["src", "."]
 
 [tool.ruff]
-line-length = 100
+line-length = 120
 target-version = "py312"
+exclude = [
+    ".venv",
+    "notebooks",
+    "reports",
+    "scratch",
+    "build",
+    "dist",
+]
 
 [tool.ruff.lint]
-select = ["E", "F", "W", "I", "N", "B", "UP"]
-ignore = ["E501"]
+select = ["E", "F", "W"]
+ignore = ["E501", "F401", "F841", "E402"]

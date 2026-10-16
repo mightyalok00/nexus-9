@@ -1,6 +1,6 @@
 """Continuous causal dose-response curve estimation."""
 
-from typing import Dict, List
+from typing import Any, Dict, List
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import GradientBoostingRegressor

@@ -1,6 +1,6 @@
 """Distributionally robust optimization (DRO) and minimax decision policies."""
 
-from typing import Dict, List
+from typing import Any, Dict, List
 import numpy as np
 
 def minimax_decision(loss_matrix: np.ndarray) -> Dict[str, Any]:

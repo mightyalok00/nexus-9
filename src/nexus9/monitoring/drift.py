@@ -1,6 +1,6 @@
 """Data and concept drift detection (Kolmogorov-Smirnov & Population Stability Index)."""
 
-from typing import Dict
+from typing import Any, Dict
 import numpy as np
 import pandas as pd
 from scipy.stats import ks_2samp

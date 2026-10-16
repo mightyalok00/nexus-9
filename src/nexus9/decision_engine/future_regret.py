@@ -1,6 +1,6 @@
 """Counterfactual regret minimization and Expected Opportunity Loss (EOL)."""
 
-from typing import Dict, List
+from typing import Any, Dict, List
 import numpy as np
 
 def calculate_expected_regret(
