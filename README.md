@@ -113,7 +113,21 @@ python scripts/run_benchmarks.py
 
 ---
 
-## Evaluation and Reproducibility\n\nThe model benchmark uses a deterministic seed and reports train/validation/test sizes, test-set target prevalence, and the selected ranking metric. Classification metrics include F1, balanced accuracy, specificity, Matthews correlation coefficient (MCC), ROC-AUC, average precision, Brier score, log loss, and confusion-matrix counts when probabilities are available. Invalid probability arrays now fail explicitly rather than being silently ignored.\n\nThe model leaderboard is ranked by held-out F1 and records the actual top-ranked model in the evidence ledger. Results are still based on the synthetic FutureBench dataset; external validation remains required before making real-world claims.\n\n## Critical Anti-Leakage Design Rule
+## Evaluation and Reproducibility\n\nThe model benchmark uses a deterministic seed and reports train/validation/test sizes, test-set target prevalence, and the selected ranking metric. Classification metrics include F1, balanced accuracy, specificity, Matthews correlation coefficient (MCC), ROC-AUC, average precision, Brier score, log loss, and confusion-matrix counts when probabilities are available. Invalid probability arrays now fail explicitly rather than being silently ignored.\n\nThe model leaderboard is ranked by held-out F1 and records the actual top-ranked model in the evidence ledger. Results are still based on the synthetic FutureBench dataset; external validation remains required before making real-world claims.\n\n## Real-World Proxy Validation (Olist)
+
+NEXUS-9 now includes an optional external validation harness for the real [Olist Brazilian E-Commerce dataset](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce). It evaluates delivery-delay classification using chronological train/validation/test splits, a dummy baseline, logistic regression, random forest, and leakage-aware purchase-time features.
+
+The Olist CSVs are **not included** in this repository. Download them from Kaggle and follow [the validation protocol](docs/real_world_validation.md). The dataset is licensed CC BY-NC-SA 4.0; review its terms before reuse.
+
+```bash
+python scripts/validate_olist.py --data-dir data/real_world/
+```
+
+This is a real-world proxy task—not direct validation of industrial supply-chain disruption. No real-data performance score should be claimed until the script is run on the dataset and the generated report is reviewed.
+
+---
+
+## Critical Anti-Leakage Design Rule
 
 `disruption_risk` is mathematically defined from `delivery_delay_days`, `inventory_gap`, and `service_level`:
 
